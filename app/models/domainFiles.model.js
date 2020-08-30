@@ -6,6 +6,9 @@ module.exports = (sequelize, Sequelize, domainName) => {
     path: {
       type: Sequelize.STRING,
     },
+    domainID: {
+      type: Sequelize.INTEGER,
+    },
   });
 
   return DomainFiles;

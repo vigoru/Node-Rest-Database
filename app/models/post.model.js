@@ -16,6 +16,9 @@ module.exports = (sequelize, Sequelize, domainName) => {
     active: {
       type: Sequelize.BOOLEAN,
     },
+    domainID: {
+      type: Sequelize.INTEGER,
+    },
   });
 
   const Links = require("./link.model")(sequelize, Sequelize);
