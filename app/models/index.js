@@ -1,19 +1,31 @@
-const dbConfig = require('../config/db.config');
+const dbConfig = require("../config/db.config");
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST, dialect: dbConfig.dialect, operatorsAliases: false,
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+  dbConfig.POSTGRE.DB,
+  dbConfig.POSTGRE.USER,
+  dbConfig.POSTGRE.PASSWORD,
+  {
+    host: dbConfig.POSTGRE.HOST,
+    dialect: dbConfig.POSTGRE.dialect,
+    operatorsAliases: false,
+    pool: {
+      max: dbConfig.POSTGRE.pool.max,
+      min: dbConfig.POSTGRE.pool.min,
+      acquire: dbConfig.POSTGRE.pool.acquire,
+      idle: dbConfig.POSTGRE.pool.idle,
+    },
   }
-});
+);
 
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require('./tutorial.model.js')(sequelize,Sequelize);
+db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+db.users = require("./user.model.js")(sequelize, Sequelize);
+db.domains = require("./domain.model.js")(sequelize, Sequelize);
+db.links = require("./link.model.js")(sequelize, Sequelize);
+db.tags = require("./tag.model.js")(sequelize, Sequelize);
+
 module.exports = db;

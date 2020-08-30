@@ -16,7 +16,7 @@
     "express",
     "database"
   ],
-  "author": "COdegnir",
+  "author": "Codegnir",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/vigoru/Node-Rest-Database/issues"
@@ -28,6 +28,8 @@
     "express": "^4.17.1",
     "mariadb": "^2.4.2",
     "mysql2": "^2.1.0",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.4"
   },
   "devDependencies": {
