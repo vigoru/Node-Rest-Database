@@ -22,10 +22,11 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.users = require("./user.model.js")(sequelize, Sequelize);
 db.domains = require("./domain.model.js")(sequelize, Sequelize);
 db.links = require("./link.model.js")(sequelize, Sequelize);
 db.tags = require("./tag.model.js")(sequelize, Sequelize);
+db.domainFiles = [];
+db.posts = [];
 
 module.exports = db;

@@ -18,16 +18,17 @@ exports.create = (req, res) => {
   };
   Domain.create(domain)
     .then((data) => {
-      db.domainFiles = require("../models/domainFiles.model")(
-        db.sequelize,
-        db.Sequelize,
-        data.name
+      db.domainFiles.push(
+        require("../models/domainFiles.model")(
+          db.sequelize,
+          db.Sequelize,
+          data.name
+        )
       );
-      db.posts = require("../models/post.model")(
-        db.sequelize,
-        db.Sequelize,
-        data.name
+      db.posts.push(
+        require("../models/post.model")(db.sequelize, db.Sequelize, data.name)
       );
+
       db.sequelize.sync().then(() => {
         console.log("force sync after create a domain");
       });

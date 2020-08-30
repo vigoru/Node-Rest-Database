@@ -20,9 +20,12 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Node-Rest-Database App" });
 });
 
-require("./app/routes/tutorial.routes")(app);
 require("./app/routes/domain.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/tag.routes")(app);
+require("./app/routes/link.routes")(app);
+require("./app/routes/domainFile.routes")(app);
+require("./app/routes/post.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
